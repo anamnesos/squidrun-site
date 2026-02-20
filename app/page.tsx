@@ -292,10 +292,10 @@ function TerminalPreview() {
               </span>
             </div>
             <div className="flex items-center gap-2 text-[10px] font-medium text-zinc-300">
-              <span className="rounded-md border border-cyan-700/50 bg-cyan-900/30 px-2 py-1 text-cyan-200">Present</span>
+              <span className="rounded-md border border-cyan-700/50 bg-cyan-900/30 px-2 py-1 text-cyan-200">Project</span>
               <span className="rounded-md border border-zinc-700 px-2 py-1">Actions</span>
               <span className="rounded-md border border-zinc-700 px-2 py-1">Settings</span>
-              <span className="rounded-md border border-amber-700/50 bg-amber-900/25 px-2 py-1 text-amber-200">Paused</span>
+              <span className="rounded-md border border-cyan-700/50 bg-cyan-900/30 px-2 py-1 text-cyan-200">Panel</span>
             </div>
           </div>
           <div className="flex items-center justify-between border-t border-cyan-950/80 px-3 py-1.5 text-[10px]">
@@ -313,7 +313,12 @@ function TerminalPreview() {
                 <span className="rounded-full border border-amber-600/60 bg-amber-900/30 px-2 py-0.5 font-semibold text-amber-300">Arch</span>
                 <span className="rounded-md border border-orange-700/60 bg-orange-900/30 px-2 py-0.5 font-semibold text-orange-200">CLAUDE CODE</span>
               </div>
-              <span className="rounded-md border border-zinc-700 px-2 py-0.5 text-zinc-400">Claude</span>
+              <div className="flex items-center gap-1">
+                <span className="rounded-md border border-zinc-700 px-2 py-0.5 text-zinc-400">Claude</span>
+                <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-[10px] text-cyan-300">□</span>
+                <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-[10px] text-cyan-300">○</span>
+                <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-[10px] text-cyan-300">↻</span>
+              </div>
             </div>
             <div className="flex-1 space-y-1 overflow-hidden px-3 py-3 font-mono text-[11px] leading-[1.56] text-zinc-300">
               {architectTerminalLines.map((line, index) => (
@@ -341,34 +346,48 @@ function TerminalPreview() {
             </div>
           </section>
 
-          <section className="flex min-h-0 flex-col bg-[#040b18]">
-            <div className="grid grid-cols-5 border-b border-cyan-950/80 text-[10px] font-semibold tracking-[0.06em] text-zinc-500 uppercase">
-              <span className="border-r border-cyan-950/70 px-2 py-2 text-center">Bridge</span>
-              <span className="border-r border-cyan-950/70 px-2 py-2 text-center">Comms</span>
-              <span className="border-r border-cyan-900/60 bg-cyan-900/20 px-2 py-2 text-center text-cyan-300">Screenshots</span>
-              <span className="border-r border-cyan-950/70 px-2 py-2 text-center">Image Gen</span>
-              <span className="px-2 py-2 text-center">Secrets</span>
-            </div>
-            <div className="flex-1 px-3 py-3">
-              <h3 className="text-sm font-semibold text-zinc-100">Screenshots</h3>
-              <p className="mt-1 text-[11px] text-zinc-500">Drag &amp; drop images or paste from clipboard</p>
-              <div className="mt-3 flex h-28 items-center justify-center rounded-lg border border-dashed border-cyan-900/60 bg-[#061226] text-center text-[11px] text-zinc-500">
-                <div>
-                  <div className="mx-auto mb-2 flex h-8 w-8 items-center justify-center rounded-md border border-cyan-800/70 bg-cyan-950/45 text-cyan-300">◘</div>
-                  <div>Drop images here or click to browse</div>
+          <section className="grid min-h-0 grid-rows-2 bg-[#040b18]">
+            <article className="min-h-0 border-b border-cyan-950/70">
+              <div className="flex items-center justify-between border-b border-cyan-950/70 px-2.5 py-2 text-[10px]">
+                <div className="flex items-center gap-1.5">
+                  <span className="rounded-sm border border-cyan-700/50 bg-cyan-900/30 px-1.5 py-0.5 text-cyan-200">Builder</span>
+                  <span className="rounded-sm border border-cyan-700/50 bg-cyan-950/40 px-1.5 py-0.5 text-cyan-300">CODEX</span>
+                </div>
+                <div className="flex items-center gap-1 text-zinc-500">
+                  <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5">Code</span>
+                  <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">□</span>
+                  <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">○</span>
+                  <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">↻</span>
                 </div>
               </div>
-              <div className="mt-4 rounded-md border border-cyan-900/55 bg-[#041124] p-2">
-                <p className="mb-2 text-[10px] font-semibold tracking-[0.08em] text-zinc-500 uppercase">Latest Preview</p>
-                <div className="overflow-hidden rounded border border-cyan-900/65 bg-[#07152b]">
-                  <div className="h-14 bg-[linear-gradient(135deg,rgba(10,28,54,0.95),rgba(17,78,122,0.7)_45%,rgba(36,140,118,0.45))]" />
-                  <div className="flex items-center justify-between px-2 py-1.5 text-[10px] text-zinc-500">
-                    <span>preview-042.png</span>
-                    <span className="text-cyan-300">1280x720</span>
-                  </div>
+              <div className="space-y-1 px-3 py-2 font-mono text-[10px] leading-[1.55] text-zinc-400">
+                <p className="text-zinc-500"># Running pane-host cleanup check...</p>
+                <p><span className="text-zinc-600">$</span> pnpm test --filter pane-host</p>
+                <p className="text-emerald-300">(BUILDER #9): ACK. Applying mockup alignment fixes.</p>
+                <p className="text-zinc-500">&gt; Investigating pane host window cleanup...</p>
+                <p className="text-zinc-600">&gt; Write tests for #filename</p>
+              </div>
+            </article>
+            <article className="min-h-0">
+              <div className="flex items-center justify-between border-b border-cyan-950/70 px-2.5 py-2 text-[10px]">
+                <div className="flex items-center gap-1.5">
+                  <span className="rounded-sm border border-cyan-700/50 bg-cyan-900/30 px-1.5 py-0.5 text-cyan-200">Oracle</span>
+                  <span className="rounded-sm border border-cyan-700/50 bg-cyan-950/40 px-1.5 py-0.5 text-cyan-300">CODEX</span>
+                </div>
+                <div className="flex items-center gap-1 text-zinc-500">
+                  <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5">Code</span>
+                  <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">□</span>
+                  <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">○</span>
+                  <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">↻</span>
                 </div>
               </div>
-            </div>
+              <div className="space-y-1 px-3 py-2 font-mono text-[10px] leading-[1.55] text-zinc-400">
+                <p className="text-zinc-500"># Role/shim audit + addendum in progress</p>
+                <p><span className="text-zinc-600">$</span> rg -n &quot;spawn agent&quot; ui/modules/main</p>
+                <p className="text-cyan-300">(ORACLE #9): Delivered findings with ack: delivered.verified.</p>
+                <p className="text-zinc-600">&gt; Top issues flagged and recommendations sent.</p>
+              </div>
+            </article>
           </section>
         </div>
 
@@ -377,13 +396,16 @@ function TerminalPreview() {
             <div className="flex h-9 flex-1 items-center rounded-md border border-cyan-900/60 bg-[#041022] px-3 text-[11px] text-zinc-500">
               Type here to message Architect (Enter to send)
             </div>
+            <button type="button" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-cyan-800/60 bg-cyan-950/35 text-cyan-200">
+              ◉
+            </button>
             <button type="button" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-cyan-800/60 bg-cyan-900/30 text-cyan-200">
               ▸
             </button>
           </div>
           <div className="mt-1.5 flex items-center justify-between text-[10px] text-zinc-600">
             <span>screenshot-1771565860398.png  SYNC  CTC  BLK  ERR</span>
-            <span>Voice ready  ·  Press Ctrl+1-3 to focus pane</span>
+            <span>Press Ctrl+1-4 to focus pane | Enter to send to Architect | Use /task to auto-route</span>
           </div>
         </div>
       </div>
