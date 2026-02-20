@@ -90,20 +90,20 @@ export default function Home() {
             <div className="animate-fade-in-up opacity-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-medium tracking-[0.14em] text-zinc-300 uppercase">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
-                Open Source Multi-Agent Runtime
+                Built for the solo developer.
               </div>
             </div>
 
             <h1 className="animate-fade-in-up opacity-0 delay-100 mt-6 text-4xl leading-[1.03] font-bold tracking-tight sm:text-5xl lg:text-7xl">
-              Coordinate three coding agents at once.
+              Your AI coding team.
               <span className="mt-2 block bg-gradient-to-r from-accent via-accent-light to-indigo-300 bg-clip-text text-transparent">
-                Keep one clear command center.
+                Running locally. On subscriptions you already pay for.
               </span>
             </h1>
 
             <p className="animate-fade-in-up opacity-0 delay-200 mt-7 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-              SquidRun runs Architect, Builder, and Oracle in parallel terminal panes so architecture, implementation, and investigation happen at the same time.
-              Local-first, model-agnostic, and built for focused execution.
+              SquidRun runs Claude, Codex, and Gemini as one coordinated team - Architect, Builder, Oracle - each in their own pane, each bringing different reasoning.
+              Just your machine, your models, your code.
             </p>
 
             <div className="animate-fade-in-up opacity-0 delay-300 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -112,7 +112,7 @@ export default function Home() {
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:translate-y-[-1px] hover:bg-accent-light hover:shadow-[0_0_28px_rgba(109,90,252,0.45)]"
               >
                 <DownloadIcon className="h-5 w-5" />
-                Download Latest Release
+                Launch Local Runtime
               </a>
               <a
                 href="https://github.com/anamnesos/hivemind"
@@ -121,7 +121,7 @@ export default function Home() {
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 text-base font-medium text-zinc-200 transition-all hover:border-zinc-600 hover:bg-surface-light hover:text-white"
               >
                 <GitHubIcon className="h-5 w-5" />
-                Browse Source
+                Browse Runtime Source
               </a>
             </div>
 
@@ -156,28 +156,28 @@ export default function Home() {
       <section id="features" className="mx-auto w-full max-w-6xl px-4 py-24 sm:px-6 lg:py-28">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Why single-agent loops break down
+            Not another agent framework
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-            One model doing everything burns context and forces serial work. SquidRun splits strategy, execution, and investigation across dedicated lanes with structured comms.
+            Most frameworks are Python-first and API-key-first. SquidRun is local desktop orchestration of real CLIs with role discipline and no required per-token API billing.
           </p>
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
           <FeatureCard
             icon={<PanesIcon />}
-            title="Parallel Panes"
-            description="Three independent CLI sessions run simultaneously, each with separated pane context and state."
+            title="Heterogeneous models in parallel"
+            description="Claude, Codex, and Gemini run side by side, each bringing different reasoning styles."
           />
           <FeatureCard
             icon={<BrainIcon />}
-            title="Role Discipline"
-            description="Architect coordinates, Builder executes, Oracle investigates. Less context thrash, faster handoffs."
+            title="Real local CLI/PTY processes"
+            description="Execution happens through real local CLIs and terminal sessions, not API wrappers."
           />
           <FeatureCard
             icon={<SwapIcon />}
-            title="Model Agnostic"
-            description="Assign Claude, Codex, or Gemini per pane and change at runtime without disrupting role boundaries."
+            title="Local-first desktop app"
+            description="Your code stays on your machine while SquidRun coordinates work across dedicated panes."
           />
           <FeatureCard
             icon={<MessageIcon />}
