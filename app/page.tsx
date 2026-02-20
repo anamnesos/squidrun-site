@@ -37,7 +37,7 @@ const oracleTerminalLines: TerminalLine[] = [
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground antialiased">
+    <div className="relative min-h-screen overflow-x-hidden overflow-x-clip bg-background text-foreground antialiased">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(109,90,252,0.2),transparent_45%),radial-gradient(circle_at_80%_0%,rgba(139,125,255,0.18),transparent_42%)]" />
         <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:40px_40px]" />
@@ -85,7 +85,7 @@ export default function Home() {
       </nav>
 
       <section className="relative px-4 pb-20 pt-30 sm:px-6 sm:pt-36 lg:pb-28">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
+        <div className="mx-auto grid w-full max-w-6xl min-w-0 items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
           <div>
             <div className="animate-fade-in-up opacity-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-medium tracking-[0.14em] text-zinc-300 uppercase">
@@ -133,7 +133,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="animate-fade-in-up opacity-0 delay-500 relative">
+          <div className="animate-fade-in-up opacity-0 delay-500 relative min-w-0">
             <div className="mb-5 flex justify-center lg:justify-end">
               <div className="w-full max-w-[330px]">
                 <Image
@@ -146,7 +146,9 @@ export default function Home() {
                 />
               </div>
             </div>
-            <TerminalPreview />
+            <div className="mx-auto w-full max-w-[760px] overflow-hidden lg:ml-auto">
+              <TerminalPreview />
+            </div>
           </div>
         </div>
       </section>
@@ -298,39 +300,38 @@ function TerminalPreview() {
   const buildLineStyle = (line: TerminalLine): CSSProperties =>
     ({
       "--line-delay": `${line.at}s`,
-      "--line-width": `${Math.max(22, line.text.length + 2)}ch`,
       "--line-steps": Math.max(24, line.text.length),
     }) as CSSProperties;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-cyan-900/40 bg-[#030914] p-1 shadow-[0_35px_110px_rgba(0,0,0,0.62)]">
+    <div className="relative w-full max-w-full overflow-x-hidden rounded-2xl border border-cyan-900/40 bg-[#030914] p-1 shadow-[0_35px_110px_rgba(0,0,0,0.62)]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_88%_8%,rgba(0,210,255,0.12),transparent_40%),radial-gradient(circle_at_15%_90%,rgba(73,245,170,0.08),transparent_42%)]" />
-      <div className="relative overflow-hidden rounded-xl border border-cyan-950/80 bg-[#040b1a]">
+      <div className="relative rounded-xl border border-cyan-950/80 bg-[#040b1a]">
         <div className="border-b border-cyan-900/50 bg-[#061225]">
-          <div className="flex items-center justify-between px-3 py-2.5">
+          <div className="flex flex-wrap items-center justify-between gap-y-1 px-3 py-2.5">
             <div className="flex items-center gap-2.5">
               <span className="text-sm font-semibold tracking-tight text-cyan-300">SquidRun</span>
               <span className="rounded-md border border-emerald-700/50 bg-emerald-900/35 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
                 Session 42
               </span>
             </div>
-            <div className="flex items-center gap-2 text-[10px] font-medium text-zinc-300">
+            <div className="flex flex-wrap items-center justify-end gap-1.5 text-[9px] font-medium text-zinc-300 sm:text-[10px]">
               <span className="rounded-md border border-cyan-700/50 bg-cyan-900/30 px-2 py-1 text-cyan-200">Project</span>
               <span className="rounded-md border border-zinc-700 px-2 py-1">Actions</span>
               <span className="rounded-md border border-zinc-700 px-2 py-1">Settings</span>
               <span className="rounded-md border border-cyan-700/50 bg-cyan-900/30 px-2 py-1 text-cyan-200">Panel</span>
             </div>
           </div>
-          <div className="flex items-center justify-between border-t border-cyan-950/80 px-3 py-1.5 text-[10px]">
-            <span className="text-zinc-500">
+          <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 border-t border-cyan-950/80 px-3 py-1.5 text-[10px]">
+            <span className="max-w-full truncate text-zinc-500">
               Project: <span className="text-cyan-300">/home/dev/my-project</span>
             </span>
-            <span className="text-zinc-600">Session: 0:40</span>
+            <span className="text-zinc-600 sm:ml-auto">Session: 0:40</span>
           </div>
         </div>
 
-        <div className="grid h-[420px] grid-cols-[1.8fr_1fr] overflow-hidden bg-cyan-950/40">
-          <section className="flex min-h-0 flex-col border-r border-cyan-900/55 bg-[#050c1c]">
+        <div className="grid h-[420px] min-w-0 grid-cols-[1.4fr_1fr] bg-cyan-950/40">
+          <section className="flex min-h-0 min-w-0 flex-col border-r border-cyan-900/55 bg-[#050c1c]">
             <div className="flex items-center justify-between border-b border-cyan-950/70 px-3 py-2 text-[11px]">
               <div className="flex items-center gap-1.5">
                 <span className="rounded-full border border-amber-600/60 bg-amber-900/30 px-2 py-0.5 font-semibold text-amber-300">Arch</span>
@@ -360,8 +361,8 @@ function TerminalPreview() {
             </div>
           </section>
 
-          <section className="grid min-h-0 grid-rows-2 bg-[#040b18]">
-            <article className="flex min-h-0 flex-col border-b border-cyan-950/70">
+          <section className="grid min-h-0 min-w-0 grid-rows-2 bg-[#040b18]">
+            <article className="flex min-h-0 min-w-0 flex-col border-b border-cyan-950/70">
               <div className="flex items-center justify-between border-b border-cyan-950/70 px-2.5 py-2 text-[10px]">
                 <div className="flex items-center gap-1.5">
                   <span className="rounded-sm border border-cyan-700/50 bg-cyan-900/30 px-1.5 py-0.5 text-cyan-200">Builder</span>
@@ -390,11 +391,11 @@ function TerminalPreview() {
                 </div>
               </div>
             </article>
-            <article className="flex min-h-0 flex-col">
+            <article className="flex min-h-0 min-w-0 flex-col">
               <div className="flex items-center justify-between border-b border-cyan-950/70 px-2.5 py-2 text-[10px]">
                 <div className="flex items-center gap-1.5">
                   <span className="rounded-sm border border-cyan-700/50 bg-cyan-900/30 px-1.5 py-0.5 text-cyan-200">Oracle</span>
-                  <span className="rounded-sm border border-cyan-700/50 bg-cyan-950/40 px-1.5 py-0.5 text-cyan-300">CODEX</span>
+                  <span className="rounded-sm border border-violet-700/50 bg-violet-950/40 px-1.5 py-0.5 text-violet-300">GEMINI</span>
                 </div>
                 <div className="flex items-center gap-1 text-zinc-500">
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5">Code</span>
@@ -435,9 +436,9 @@ function TerminalPreview() {
               ▸
             </button>
           </div>
-          <div className="mt-1.5 flex items-center justify-between text-[10px] text-zinc-600">
-            <span>screenshot-1771565860398.png  SYNC  CTC  BLK  ERR</span>
-            <span>Press Ctrl+1-4 to focus pane | Enter to send to Architect | Use /task to auto-route</span>
+          <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] text-zinc-600">
+            <span className="max-w-full truncate">screenshot-1771565860398.png  SYNC  CTC  BLK  ERR</span>
+            <span className="sm:ml-auto">Press Ctrl+1-4 to focus pane | Enter to send to Architect | Use /task to auto-route</span>
           </div>
         </div>
       </div>
