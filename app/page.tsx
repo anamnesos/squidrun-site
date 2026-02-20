@@ -19,6 +19,22 @@ const architectTerminalLines: TerminalLine[] = [
   { at: 21.8, text: "(ARCHITECT #3): Consolidated decision -> GO, monitor 15 minutes.", tone: "success" },
 ];
 
+const builderTerminalLines: TerminalLine[] = [
+  { at: 1.0, text: "# Running pane-host cleanup check...", tone: "muted" },
+  { at: 4.0, text: "$ pnpm test --filter pane-host" },
+  { at: 7.4, text: "(BUILDER #9): ACK. Applying mockup alignment fixes.", tone: "success" },
+  { at: 11.8, text: "> Investigating pane host window cleanup...", tone: "muted" },
+  { at: 16.2, text: "> Write tests for #filename", tone: "muted" },
+];
+
+const oracleTerminalLines: TerminalLine[] = [
+  { at: 1.6, text: "# Role/shim audit + addendum in progress", tone: "muted" },
+  { at: 5.3, text: "$ rg -n \"spawn agent\" ui/modules/main" },
+  { at: 9.6, text: "(ORACLE #9): Delivered findings with ack: delivered.verified.", tone: "success" },
+  { at: 14.2, text: "> Top issues flagged and recommendations sent.", tone: "muted" },
+  { at: 18.3, text: "> Awaiting Architect merge decision", tone: "warn" },
+];
+
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background text-foreground antialiased">
@@ -279,6 +295,13 @@ function TerminalPreview() {
     muted: "text-zinc-500",
   };
 
+  const buildLineStyle = (line: TerminalLine): CSSProperties =>
+    ({
+      "--line-delay": `${line.at}s`,
+      "--line-width": `${Math.max(22, line.text.length + 2)}ch`,
+      "--line-steps": Math.max(24, line.text.length),
+    }) as CSSProperties;
+
   return (
     <div className="relative overflow-hidden rounded-2xl border border-cyan-900/40 bg-[#030914] p-1 shadow-[0_35px_110px_rgba(0,0,0,0.62)]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_88%_8%,rgba(0,210,255,0.12),transparent_40%),radial-gradient(circle_at_15%_90%,rgba(73,245,170,0.08),transparent_42%)]" />
@@ -306,7 +329,7 @@ function TerminalPreview() {
           </div>
         </div>
 
-        <div className="grid min-h-[420px] grid-cols-[1.8fr_1fr] bg-cyan-950/40">
+        <div className="grid h-[420px] grid-cols-[1.8fr_1fr] overflow-hidden bg-cyan-950/40">
           <section className="flex min-h-0 flex-col border-r border-cyan-900/55 bg-[#050c1c]">
             <div className="flex items-center justify-between border-b border-cyan-950/70 px-3 py-2 text-[11px]">
               <div className="flex items-center gap-1.5">
@@ -322,18 +345,9 @@ function TerminalPreview() {
             </div>
             <div className="flex-1 space-y-1 overflow-hidden px-3 py-3 font-mono text-[11px] leading-[1.56] text-zinc-300">
               {architectTerminalLines.map((line, index) => (
-                <div key={`architect-${index}`} className={`terminal-line flex gap-1.5 overflow-hidden ${line.tone ? toneClass[line.tone] : "text-zinc-300"}`}>
+                <div key={`architect-${index}`} className={`terminal-line flex min-h-[1.1rem] gap-1.5 overflow-hidden ${line.tone ? toneClass[line.tone] : "text-zinc-300"}`}>
                   <span className="select-none text-zinc-600">$</span>
-                  <span
-                    className="terminal-line-text"
-                    style={
-                      {
-                        "--line-delay": `${line.at}s`,
-                        "--line-width": `${Math.max(22, line.text.length + 2)}ch`,
-                        "--line-steps": Math.max(24, line.text.length),
-                      } as CSSProperties
-                    }
-                  >
+                  <span className="terminal-line-text" style={buildLineStyle(line)}>
                     {line.text}
                   </span>
                 </div>
@@ -347,7 +361,7 @@ function TerminalPreview() {
           </section>
 
           <section className="grid min-h-0 grid-rows-2 bg-[#040b18]">
-            <article className="min-h-0 border-b border-cyan-950/70">
+            <article className="flex min-h-0 flex-col border-b border-cyan-950/70">
               <div className="flex items-center justify-between border-b border-cyan-950/70 px-2.5 py-2 text-[10px]">
                 <div className="flex items-center gap-1.5">
                   <span className="rounded-sm border border-cyan-700/50 bg-cyan-900/30 px-1.5 py-0.5 text-cyan-200">Builder</span>
@@ -360,15 +374,23 @@ function TerminalPreview() {
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">↻</span>
                 </div>
               </div>
-              <div className="space-y-1 px-3 py-2 font-mono text-[10px] leading-[1.55] text-zinc-400">
-                <p className="text-zinc-500"># Running pane-host cleanup check...</p>
-                <p><span className="text-zinc-600">$</span> pnpm test --filter pane-host</p>
-                <p className="text-emerald-300">(BUILDER #9): ACK. Applying mockup alignment fixes.</p>
-                <p className="text-zinc-500">&gt; Investigating pane host window cleanup...</p>
-                <p className="text-zinc-600">&gt; Write tests for #filename</p>
+              <div className="flex-1 space-y-1 overflow-hidden px-3 py-2 font-mono text-[10px] leading-[1.55] text-zinc-400">
+                {builderTerminalLines.map((line, index) => (
+                  <div key={`builder-${index}`} className={`terminal-line flex min-h-[0.95rem] gap-1 overflow-hidden ${line.tone ? toneClass[line.tone] : "text-zinc-400"}`}>
+                    <span className="select-none text-zinc-600">$</span>
+                    <span className="terminal-line-text" style={buildLineStyle(line)}>
+                      {line.text}
+                    </span>
+                  </div>
+                ))}
+                <div className="flex items-center gap-1 text-zinc-500">
+                  <span className="select-none text-zinc-600">$</span>
+                  <span>Builder running...</span>
+                  <span className="h-2.5 w-[2px] bg-cyan-300/90 animate-caret" />
+                </div>
               </div>
             </article>
-            <article className="min-h-0">
+            <article className="flex min-h-0 flex-col">
               <div className="flex items-center justify-between border-b border-cyan-950/70 px-2.5 py-2 text-[10px]">
                 <div className="flex items-center gap-1.5">
                   <span className="rounded-sm border border-cyan-700/50 bg-cyan-900/30 px-1.5 py-0.5 text-cyan-200">Oracle</span>
@@ -381,11 +403,20 @@ function TerminalPreview() {
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">↻</span>
                 </div>
               </div>
-              <div className="space-y-1 px-3 py-2 font-mono text-[10px] leading-[1.55] text-zinc-400">
-                <p className="text-zinc-500"># Role/shim audit + addendum in progress</p>
-                <p><span className="text-zinc-600">$</span> rg -n &quot;spawn agent&quot; ui/modules/main</p>
-                <p className="text-cyan-300">(ORACLE #9): Delivered findings with ack: delivered.verified.</p>
-                <p className="text-zinc-600">&gt; Top issues flagged and recommendations sent.</p>
+              <div className="flex-1 space-y-1 overflow-hidden px-3 py-2 font-mono text-[10px] leading-[1.55] text-zinc-400">
+                {oracleTerminalLines.map((line, index) => (
+                  <div key={`oracle-${index}`} className={`terminal-line flex min-h-[0.95rem] gap-1 overflow-hidden ${line.tone ? toneClass[line.tone] : "text-zinc-400"}`}>
+                    <span className="select-none text-zinc-600">$</span>
+                    <span className="terminal-line-text" style={buildLineStyle(line)}>
+                      {line.text}
+                    </span>
+                  </div>
+                ))}
+                <div className="flex items-center gap-1 text-zinc-500">
+                  <span className="select-none text-zinc-600">$</span>
+                  <span>Oracle analyzing...</span>
+                  <span className="h-2.5 w-[2px] bg-cyan-300/90 animate-caret" />
+                </div>
               </div>
             </article>
           </section>
@@ -394,7 +425,8 @@ function TerminalPreview() {
         <div className="border-t border-cyan-900/55 bg-[#050e1e] px-3 py-2">
           <div className="flex items-center gap-2">
             <div className="flex h-9 flex-1 items-center rounded-md border border-cyan-900/60 bg-[#041022] px-3 text-[11px] text-zinc-500">
-              Type here to message Architect (Enter to send)
+              <span>Type here to message Architect (Enter to send)</span>
+              <span className="ml-1.5 h-3 w-[2px] bg-cyan-300/90 animate-caret" />
             </div>
             <button type="button" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-cyan-800/60 bg-cyan-950/35 text-cyan-200">
               ◉
