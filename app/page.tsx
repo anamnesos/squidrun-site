@@ -149,18 +149,17 @@ export default function Home() {
 
           <div className="animate-fade-in-up opacity-0 delay-500 relative">
             <div className="mb-5 flex justify-center lg:justify-end">
-              <div className="w-full max-w-[330px] overflow-hidden rounded-2xl border border-accent/35 bg-surface/70 p-1 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
+              <div className="w-full max-w-[330px]">
                 <Image
                   src="/squidrun-logo.png"
                   alt="SquidRun logo"
                   width={768}
                   height={1366}
                   priority
-                  className="h-auto w-full rounded-[14px] object-cover"
+                  className="h-auto w-full object-contain drop-shadow-[0_0_40px_rgba(109,90,252,0.3)]"
                 />
               </div>
             </div>
-            <div className="pointer-events-none absolute -inset-3 rounded-[24px] bg-gradient-to-r from-accent/35 to-indigo-300/25 blur-2xl" />
             <TerminalPreview />
           </div>
         </div>
