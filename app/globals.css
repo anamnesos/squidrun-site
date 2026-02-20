@@ -48,6 +48,17 @@ body {
   50%, 100% { opacity: 0; }
 }
 
+@keyframes terminal-line-visibility {
+  0%, 1.5% { opacity: 0; }
+  2%, 24% { opacity: 1; }
+  30%, 100% { opacity: 0; }
+}
+
+@keyframes terminal-line-type {
+  0%, 2% { width: 0; }
+  10%, 100% { width: var(--line-width, 30ch); }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -64,6 +75,19 @@ body {
   animation: caret-blink 1.15s steps(2, end) infinite;
 }
 
+.terminal-line-text {
+  display: inline-block;
+  width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  animation:
+    terminal-line-visibility 26s linear infinite,
+    terminal-line-type 26s steps(var(--line-steps, 40), end) infinite;
+  animation-delay: var(--line-delay, 0s), var(--line-delay, 0s);
+}
+
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
@@ -76,5 +100,10 @@ body {
   .animate-fade-in-up,
   .animate-caret {
     animation: none !important;
+  }
+  .terminal-line-text {
+    animation: none !important;
+    width: auto !important;
+    opacity: 1 !important;
   }
 }

@@ -1,52 +1,22 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
 type LaneTone = "success" | "warn" | "muted";
 
 type TerminalLine = {
+  at: number;
   text: string;
   tone?: LaneTone;
 };
 
-type TerminalLane = {
-  title: string;
-  agent: string;
-  lines: TerminalLine[];
-};
-
-const terminalLanes: TerminalLane[] = [
-  {
-    title: "Pane 1 - Architect",
-    agent: "claude",
-    lines: [
-      { text: "Reading session handoff..." },
-      { text: "0 blockers | 0 unresolved claims", tone: "success" },
-      { text: "Dispatching auth refactor -> Builder" },
-      { text: "Dispatching spike analysis -> Oracle" },
-      { text: "Waiting on consolidated report...", tone: "muted" },
-    ],
-  },
-  {
-    title: "Pane 2 - Builder",
-    agent: "codex",
-    lines: [
-      { text: "Task accepted: auth token hardening", tone: "success" },
-      { text: "Editing src/auth/middleware.ts" },
-      { text: "Adding refresh-rotation guard" },
-      { text: "Jest: 47/47 passing", tone: "success" },
-      { text: "Replying to Architect with patch id", tone: "muted" },
-    ],
-  },
-  {
-    title: "Pane 3 - Oracle",
-    agent: "gemini",
-    lines: [
-      { text: "Investigating /api/sync burst profile" },
-      { text: "Correlation: 3x retry storm at deploy", tone: "warn" },
-      { text: "Root cause: missing 500ms debounce", tone: "warn" },
-      { text: "Recommendation attached with evidence", tone: "success" },
-      { text: "Monitoring post-fix behavior...", tone: "muted" },
-    ],
-  },
+const architectTerminalLines: TerminalLine[] = [
+  { at: 0.7, text: "(ARCHITECT #1): Builder, patch auth token replay + rotation." },
+  { at: 3.1, text: "(BUILDER #14): ACK. Implementing and running auth tests.", tone: "success" },
+  { at: 6.3, text: "(ARCHITECT #2): Oracle, investigate deploy retry burst signals." },
+  { at: 9.2, text: "(ORACLE #9): Correlated spikes to missing retry debounce.", tone: "warn" },
+  { at: 13.1, text: "(BUILDER #15): auth-suite 47/47 passing. Patch ready.", tone: "success" },
+  { at: 17.8, text: "(ORACLE #10): Recommendation: 500ms debounce + jitter.", tone: "warn" },
+  { at: 21.8, text: "(ARCHITECT #3): Consolidated decision -> GO, monitor 15 minutes.", tone: "success" },
 ];
 
 export default function Home() {
@@ -81,7 +51,7 @@ export default function Home() {
               How It Works
             </a>
             <a
-              href="https://github.com/anamnesos/squidrun-site"
+              href="https://github.com/anamnesos/hivemind"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-zinc-400 transition-colors hover:text-white"
@@ -122,14 +92,14 @@ export default function Home() {
 
             <div className="animate-fade-in-up opacity-0 delay-300 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="https://github.com/anamnesos/squidrun-site/releases/latest"
+                href="https://github.com/anamnesos/hivemind/releases/latest"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:translate-y-[-1px] hover:bg-accent-light hover:shadow-[0_0_28px_rgba(109,90,252,0.45)]"
               >
                 <DownloadIcon className="h-5 w-5" />
                 Download Latest Release
               </a>
               <a
-                href="https://github.com/anamnesos/squidrun-site"
+                href="https://github.com/anamnesos/hivemind"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 text-base font-medium text-zinc-200 transition-all hover:border-zinc-600 hover:bg-surface-light hover:text-white"
@@ -179,7 +149,7 @@ export default function Home() {
           <FeatureCard
             icon={<PanesIcon />}
             title="Parallel Panes"
-            description="Three independent CLI sessions run simultaneously, each with isolated context and quota."
+            description="Three independent CLI sessions run simultaneously, each with separated pane context and state."
           />
           <FeatureCard
             icon={<BrainIcon />}
@@ -202,9 +172,14 @@ export default function Home() {
             description="Session artifacts and handoffs are materialized automatically so agents resume with operational continuity."
           />
           <FeatureCard
+            icon={<ScaleIcon />}
+            title="Autonomous Builder Scaling"
+            description="When work gets heavy, Builder can spawn up to three background worker agents to parallelize implementation, tests, and fixes before reporting back to Architect."
+          />
+          <FeatureCard
             icon={<ShieldIcon />}
             title="Local by Default"
-            description="No cloud relay layer. Keys and project data remain on your machine while CLIs authenticate directly."
+            description="Core orchestration is local-first with no required cloud relay. Optional Telegram and SMS channels are opt-in."
           />
         </div>
       </section>
@@ -228,7 +203,7 @@ export default function Home() {
             <Step
               number={3}
               title="Drive through Architect"
-              description="You issue instructions to one control lane while the other agents execute in parallel and report upstream."
+              description="Architect delegates across Builder and Oracle. Builder can autonomously fan out into background workers for multi-file tasks, then consolidate results upstream."
             />
             <Step
               number={4}
@@ -249,14 +224,14 @@ export default function Home() {
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="https://github.com/anamnesos/squidrun-site/releases/latest"
+              href="https://github.com/anamnesos/hivemind/releases/latest"
               className="inline-flex h-13 w-full max-w-xs items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:bg-accent-light hover:shadow-[0_0_30px_rgba(109,90,252,0.45)]"
             >
               <DownloadIcon className="h-5 w-5" />
               Download Release
             </a>
             <a
-              href="https://github.com/anamnesos/squidrun-site"
+              href="https://github.com/anamnesos/hivemind"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-13 w-full max-w-xs items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 text-base font-medium text-zinc-200 transition-colors hover:border-zinc-600 hover:text-white"
@@ -298,37 +273,117 @@ export default function Home() {
 /* ─── Components ─── */
 
 function TerminalPreview() {
+  const toneClass: Record<LaneTone, string> = {
+    success: "text-emerald-300",
+    warn: "text-amber-300",
+    muted: "text-zinc-500",
+  };
+
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-border bg-surface/90 p-1 shadow-[0_35px_120px_rgba(0,0,0,0.55)]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(139,125,255,0.18),transparent_40%)]" />
-      <div className="relative rounded-xl border border-border/80 bg-background/95">
-        <div className="flex items-center justify-between border-b border-border/80 px-4 py-3 sm:px-5">
+    <div className="relative overflow-hidden rounded-2xl border border-cyan-900/40 bg-[#030914] p-1 shadow-[0_35px_110px_rgba(0,0,0,0.62)]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_88%_8%,rgba(0,210,255,0.12),transparent_40%),radial-gradient(circle_at_15%_90%,rgba(73,245,170,0.08),transparent_42%)]" />
+      <div className="relative overflow-hidden rounded-xl border border-cyan-950/80 bg-[#040b1a]">
+        <div className="border-b border-cyan-900/50 bg-[#061225]">
+          <div className="flex items-center justify-between px-3 py-2.5">
+            <div className="flex items-center gap-2.5">
+              <span className="text-sm font-semibold tracking-tight text-cyan-300">SquidRun</span>
+              <span className="rounded-md border border-emerald-700/50 bg-emerald-900/35 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
+                Session 42
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-[10px] font-medium text-zinc-300">
+              <span className="rounded-md border border-cyan-700/50 bg-cyan-900/30 px-2 py-1 text-cyan-200">Present</span>
+              <span className="rounded-md border border-zinc-700 px-2 py-1">Actions</span>
+              <span className="rounded-md border border-zinc-700 px-2 py-1">Settings</span>
+              <span className="rounded-md border border-amber-700/50 bg-amber-900/25 px-2 py-1 text-amber-200">Paused</span>
+            </div>
+          </div>
+          <div className="flex items-center justify-between border-t border-cyan-950/80 px-3 py-1.5 text-[10px]">
+            <span className="text-zinc-500">
+              Project: <span className="text-cyan-300">/home/dev/my-project</span>
+            </span>
+            <span className="text-zinc-600">Session: 0:40</span>
+          </div>
+        </div>
+
+        <div className="grid min-h-[420px] grid-cols-[1.8fr_1fr] bg-cyan-950/40">
+          <section className="flex min-h-0 flex-col border-r border-cyan-900/55 bg-[#050c1c]">
+            <div className="flex items-center justify-between border-b border-cyan-950/70 px-3 py-2 text-[11px]">
+              <div className="flex items-center gap-1.5">
+                <span className="rounded-full border border-amber-600/60 bg-amber-900/30 px-2 py-0.5 font-semibold text-amber-300">Arch</span>
+                <span className="rounded-md border border-orange-700/60 bg-orange-900/30 px-2 py-0.5 font-semibold text-orange-200">CLAUDE CODE</span>
+              </div>
+              <span className="rounded-md border border-zinc-700 px-2 py-0.5 text-zinc-400">Claude</span>
+            </div>
+            <div className="flex-1 space-y-1 overflow-hidden px-3 py-3 font-mono text-[11px] leading-[1.56] text-zinc-300">
+              {architectTerminalLines.map((line, index) => (
+                <div key={`architect-${index}`} className={`terminal-line flex gap-1.5 overflow-hidden ${line.tone ? toneClass[line.tone] : "text-zinc-300"}`}>
+                  <span className="select-none text-zinc-600">$</span>
+                  <span
+                    className="terminal-line-text"
+                    style={
+                      {
+                        "--line-delay": `${line.at}s`,
+                        "--line-width": `${Math.max(22, line.text.length + 2)}ch`,
+                        "--line-steps": Math.max(24, line.text.length),
+                      } as CSSProperties
+                    }
+                  >
+                    {line.text}
+                  </span>
+                </div>
+              ))}
+              <div className="flex items-center gap-1.5 text-zinc-400">
+                <span className="select-none text-zinc-600">$</span>
+                <span>Awaiting next Architect directive</span>
+                <span className="h-3 w-[2px] bg-cyan-300/90 animate-caret" />
+              </div>
+            </div>
+          </section>
+
+          <section className="flex min-h-0 flex-col bg-[#040b18]">
+            <div className="grid grid-cols-5 border-b border-cyan-950/80 text-[10px] font-semibold tracking-[0.06em] text-zinc-500 uppercase">
+              <span className="border-r border-cyan-950/70 px-2 py-2 text-center">Bridge</span>
+              <span className="border-r border-cyan-950/70 px-2 py-2 text-center">Comms</span>
+              <span className="border-r border-cyan-900/60 bg-cyan-900/20 px-2 py-2 text-center text-cyan-300">Screenshots</span>
+              <span className="border-r border-cyan-950/70 px-2 py-2 text-center">Image Gen</span>
+              <span className="px-2 py-2 text-center">Secrets</span>
+            </div>
+            <div className="flex-1 px-3 py-3">
+              <h3 className="text-sm font-semibold text-zinc-100">Screenshots</h3>
+              <p className="mt-1 text-[11px] text-zinc-500">Drag &amp; drop images or paste from clipboard</p>
+              <div className="mt-3 flex h-28 items-center justify-center rounded-lg border border-dashed border-cyan-900/60 bg-[#061226] text-center text-[11px] text-zinc-500">
+                <div>
+                  <div className="mx-auto mb-2 flex h-8 w-8 items-center justify-center rounded-md border border-cyan-800/70 bg-cyan-950/45 text-cyan-300">◘</div>
+                  <div>Drop images here or click to browse</div>
+                </div>
+              </div>
+              <div className="mt-4 rounded-md border border-cyan-900/55 bg-[#041124] p-2">
+                <p className="mb-2 text-[10px] font-semibold tracking-[0.08em] text-zinc-500 uppercase">Latest Preview</p>
+                <div className="overflow-hidden rounded border border-cyan-900/65 bg-[#07152b]">
+                  <div className="h-14 bg-[linear-gradient(135deg,rgba(10,28,54,0.95),rgba(17,78,122,0.7)_45%,rgba(36,140,118,0.45))]" />
+                  <div className="flex items-center justify-between px-2 py-1.5 text-[10px] text-zinc-500">
+                    <span>preview-042.png</span>
+                    <span className="text-cyan-300">1280x720</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div className="border-t border-cyan-900/55 bg-[#050e1e] px-3 py-2">
           <div className="flex items-center gap-2">
-            <div className="h-2.5 w-2.5 rounded-full bg-rose-400/90" />
-            <div className="h-2.5 w-2.5 rounded-full bg-amber-300/90" />
-            <div className="h-2.5 w-2.5 rounded-full bg-emerald-400/90" />
-            <span className="ml-2 text-xs text-zinc-500">squidrun runtime - session 186</span>
+            <div className="flex h-9 flex-1 items-center rounded-md border border-cyan-900/60 bg-[#041022] px-3 text-[11px] text-zinc-500">
+              Type here to message Architect (Enter to send)
+            </div>
+            <button type="button" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-cyan-800/60 bg-cyan-900/30 text-cyan-200">
+              ▸
+            </button>
           </div>
-          <span className="rounded-md border border-accent/40 bg-accent/15 px-2 py-1 text-[10px] font-semibold tracking-[0.12em] text-accent uppercase">
-            3 agents active
-          </span>
-        </div>
-
-        <div className="grid gap-px bg-border md:grid-cols-3">
-          {terminalLanes.map((lane) => (
-            <TerminalPane key={lane.title} title={lane.title} agent={lane.agent} lines={lane.lines} />
-          ))}
-        </div>
-
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border/80 px-4 py-3 sm:px-5">
-          <div className="flex items-center gap-2 font-mono text-[11px] text-zinc-400">
-            <span className="text-zinc-600">architect&gt;</span>
-            <span>Assign release checklist and stage deploy notes</span>
-            <span className="h-3 w-[2px] bg-accent/85 animate-caret" />
-          </div>
-          <div className="flex items-center gap-2 text-[11px] text-zinc-500">
-            <span className="rounded-md border border-border px-2 py-1">latency: 12ms</span>
-            <span className="rounded-md border border-border px-2 py-1">handoff: clean</span>
+          <div className="mt-1.5 flex items-center justify-between text-[10px] text-zinc-600">
+            <span>screenshot-1771565860398.png  SYNC  CTC  BLK  ERR</span>
+            <span>Voice ready  ·  Press Ctrl+1-3 to focus pane</span>
           </div>
         </div>
       </div>
@@ -341,46 +396,6 @@ function MetricPill({ label, value, compact = false }: { label: string; value: s
     <div className="rounded-xl border border-border/90 bg-surface/70 px-3 py-3 text-left">
       <p className="text-[10px] tracking-[0.12em] text-zinc-500 uppercase">{label}</p>
       <p className={`mt-1 text-sm text-zinc-200 ${compact ? "truncate" : ""}`}>{value}</p>
-    </div>
-  );
-}
-
-function TerminalPane({
-  title,
-  agent,
-  lines,
-}: {
-  title: string;
-  agent: string;
-  lines: TerminalLine[];
-}) {
-  const agentColors: Record<string, string> = {
-    claude: "text-orange-300",
-    codex: "text-emerald-300",
-    gemini: "text-sky-300",
-  };
-  const tones: Record<string, string> = {
-    success: "text-emerald-300",
-    warn: "text-amber-300",
-    muted: "text-zinc-500",
-  };
-
-  return (
-    <div className="bg-background px-4 py-4 font-mono text-[11px] leading-[1.65] sm:px-5">
-      <div className="mb-3 flex items-center justify-between">
-        <span className="text-zinc-500">{title}</span>
-        <span className={`rounded-md border border-current/25 px-2 py-0.5 text-[10px] tracking-[0.12em] uppercase ${agentColors[agent] || "text-zinc-500"}`}>
-          {agent}
-        </span>
-      </div>
-      <div className="space-y-1.5">
-        {lines.map((line, index) => (
-          <div key={`${title}-${index}`} className={`flex gap-1.5 ${tones[line.tone || ""] || "text-zinc-400"}`}>
-            <span className="select-none text-zinc-600">$</span>
-            <span>{line.text}</span>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
@@ -438,6 +453,25 @@ function PanesIcon() {
       <rect x="3" y="3" width="18" height="18" rx="2" />
       <line x1="9" y1="3" x2="9" y2="21" />
       <line x1="15" y1="3" x2="15" y2="21" />
+    </svg>
+  );
+}
+
+function ScaleIcon() {
+  return (
+    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="4" y1="6" x2="12" y2="6" />
+      <line x1="12" y1="6" x2="20" y2="3" />
+      <line x1="4" y1="12" x2="12" y2="12" />
+      <line x1="12" y1="12" x2="20" y2="12" />
+      <line x1="4" y1="18" x2="12" y2="18" />
+      <line x1="12" y1="18" x2="20" y2="21" />
+      <circle cx="3" cy="6" r="1.5" />
+      <circle cx="3" cy="12" r="1.5" />
+      <circle cx="3" cy="18" r="1.5" />
+      <circle cx="21" cy="3" r="1.5" />
+      <circle cx="21" cy="12" r="1.5" />
+      <circle cx="21" cy="21" r="1.5" />
     </svg>
   );
 }
