@@ -26,6 +26,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   line-height: 1.45;
+  overflow-x: hidden;
 }
 
 @keyframes float {
@@ -39,9 +40,12 @@ body {
 }
 
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
+
+/* Force scroll to top on load */
+html { scroll-behavior: auto; }
 
 @keyframes caret-blink {
   0%, 48% { opacity: 1; }
@@ -55,8 +59,8 @@ body {
 }
 
 @keyframes terminal-line-type {
-  0%, 2% { width: 0; }
-  10%, 100% { width: var(--line-width, 30ch); }
+  0%, 2% { clip-path: inset(0 100% 0 0); }
+  10%, 100% { clip-path: inset(0 0 0 0); }
 }
 
 .animate-float {
@@ -75,13 +79,22 @@ body {
   animation: caret-blink 1.15s steps(2, end) infinite;
 }
 
+.terminal-line {
+  min-width: 0;
+  max-width: 100%;
+}
+
 .terminal-line-text {
-  display: inline-block;
-  width: 0;
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
   max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
+  text-overflow: clip;
   opacity: 0;
+  clip-path: inset(0 100% 0 0);
   animation:
     terminal-line-visibility 26s linear infinite,
     terminal-line-type 26s steps(var(--line-steps, 40), end) infinite;
@@ -105,5 +118,6 @@ body {
     animation: none !important;
     width: auto !important;
     opacity: 1 !important;
+    clip-path: none !important;
   }
 }
