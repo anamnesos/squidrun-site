@@ -63,7 +63,7 @@ export default function Home() {
               Download for Windows
             </a>
             <a
-              href="https://github.com/jkiminator/squidrun"
+              href="https://github.com/anamnesos/squidrun-site"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-12 items-center gap-2 rounded-lg border border-border px-8 text-base font-medium text-zinc-300 transition-colors hover:border-zinc-600 hover:text-white"
@@ -84,7 +84,7 @@ export default function Home() {
               <span className="ml-3 text-xs text-zinc-500">SquidRun v1.0</span>
             </div>
             <div className="grid grid-cols-3 gap-px bg-border">
-              <TerminalPane title="Pane 1 — Director" agent="claude" lines={[
+              <TerminalPane title="Pane 1 — Architect" agent="claude" lines={[
                 "Reading session handoff...",
                 "0 blockers, 0 errors",
                 "Builder: online. Oracle: online.",
@@ -96,7 +96,7 @@ export default function Home() {
                 "Reading src/auth/middleware.ts",
                 "Refactoring JWT validation...",
                 "Tests passing: 47/47",
-                "Done. Reporting to Director.",
+                "Done. Reporting to Architect.",
               ]} />
               <TerminalPane title="Pane 3 — Oracle" agent="gemini" lines={[
                 "Investigating rate limit spike",
@@ -132,7 +132,7 @@ export default function Home() {
           <FeatureCard
             icon={<BrainIcon />}
             title="Role Specialization"
-            description="Director coordinates. Builder implements. Oracle investigates. Each agent stays in its lane — no context thrashing."
+            description="Architect coordinates. Builder implements. Oracle investigates. Each agent stays in its lane — no context thrashing."
           />
           <FeatureCard
             icon={<SwapIcon />}
@@ -165,8 +165,8 @@ export default function Home() {
           </h2>
           <div className="mt-16 space-y-12">
             <Step number={1} title="Install your AI CLIs" description="Install Claude Code, Codex, and/or Gemini CLI. SquidRun auto-detects what's available and assigns them to panes." />
-            <Step number={2} title="Launch SquidRun" description="Open the desktop app. Three panes spawn with your configured AI agents. The Director agent reads the session handoff and coordinates." />
-            <Step number={3} title="Talk to the Director" description="You interact with Pane 1 only. The Director delegates tasks to Builder and Oracle. They work in parallel and report back." />
+            <Step number={2} title="Launch SquidRun" description="Open the desktop app. Three panes spawn with your configured AI agents. The Architect agent reads the session handoff and coordinates." />
+            <Step number={3} title="Talk to the Architect" description="You interact with Pane 1 only. The Architect delegates tasks to Builder and Oracle. They work in parallel and report back." />
             <Step number={4} title="Ship faster" description="Three agents working simultaneously means 3x the context windows, 3x the throughput, and zero context thrashing." />
           </div>
         </div>
@@ -183,7 +183,7 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
-              href="https://github.com/jkiminator/squidrun/releases/latest"
+              href="https://github.com/anamnesos/squidrun-site/releases/latest"
               className="flex h-14 items-center gap-3 rounded-lg bg-accent px-10 text-lg font-medium text-white transition-all hover:bg-accent-light hover:shadow-lg hover:shadow-accent/25"
             >
               <DownloadIcon className="h-5 w-5" />
@@ -205,8 +205,8 @@ export default function Home() {
           </div>
           <p className="text-sm text-zinc-500">
             Built by{" "}
-            <a href="https://github.com/jkiminator" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">
-              James Kim
+            <a href="https://github.com/anamnesos" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">
+              anamnesos
             </a>
           </p>
         </div>
