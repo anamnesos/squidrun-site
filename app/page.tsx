@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import { PlatformDownloadButton } from "./components/platform-download-button";
 
 type LaneTone = "success" | "warn" | "muted";
 
@@ -145,13 +146,7 @@ export default function Home() {
             </p>
 
             <div className="animate-fade-in-up opacity-0 delay-300 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                href="https://github.com/anamnesos/SquidRun/releases/latest"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:translate-y-[-1px] hover:bg-accent-light hover:shadow-[0_0_28px_rgba(109,90,252,0.45)]"
-              >
-                <DownloadIcon className="h-5 w-5" />
-                Download Latest Release
-              </a>
+              <PlatformDownloadButton className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:translate-y-[-1px] hover:bg-accent-light hover:shadow-[0_0_28px_rgba(109,90,252,0.45)]" />
               <a
                 href="https://github.com/anamnesos/SquidRun"
                 target="_blank"
@@ -162,6 +157,15 @@ export default function Home() {
                 Browse Runtime Source
               </a>
             </div>
+            <p className="animate-fade-in-up opacity-0 delay-300 mt-3 text-sm text-zinc-400">
+              Need another platform?{" "}
+              <a
+                href="https://github.com/anamnesos/SquidRun/releases/latest"
+                className="text-zinc-200 underline decoration-zinc-500 underline-offset-4 transition-colors hover:text-white"
+              >
+                All Downloads
+              </a>
+            </p>
 
             <div className="animate-fade-in-up opacity-0 delay-400 mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4">
               <MetricPill label="Panes" value="3" />
@@ -280,13 +284,7 @@ export default function Home() {
             SquidRun is open source and local-first. Install once, map your models to roles, and run coordinated engineering loops from a single command center.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="https://github.com/anamnesos/SquidRun/releases/latest"
-              className="inline-flex h-12 w-full max-w-xs items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:bg-accent-light hover:shadow-[0_0_30px_rgba(109,90,252,0.45)]"
-            >
-              <DownloadIcon className="h-5 w-5" />
-              Download Latest Release
-            </a>
+            <PlatformDownloadButton className="inline-flex h-12 w-full max-w-xs items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:bg-accent-light hover:shadow-[0_0_30px_rgba(109,90,252,0.45)]" />
             <a
               href="https://github.com/anamnesos/SquidRun"
               target="_blank"
@@ -297,6 +295,15 @@ export default function Home() {
               Star on GitHub
             </a>
           </div>
+          <p className="mt-4 text-sm text-zinc-400">
+            Looking for another build?{" "}
+            <a
+              href="https://github.com/anamnesos/SquidRun/releases/latest"
+              className="text-zinc-200 underline decoration-zinc-500 underline-offset-4 transition-colors hover:text-white"
+            >
+              All Downloads
+            </a>
+          </p>
           <p className="mt-6 text-sm text-zinc-400">
             Node.js 18+ and at least one CLI runtime required.
           </p>
@@ -532,16 +539,6 @@ function Step({ number, title, description }: { number: number; title: string; d
 }
 
 /* ─── Icons (inline SVG) ─── */
-
-function DownloadIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-      <polyline points="7 10 12 15 17 10" />
-      <line x1="12" y1="15" x2="12" y2="3" />
-    </svg>
-  );
-}
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
