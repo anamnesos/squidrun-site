@@ -68,7 +68,7 @@ export default function Home() {
               How It Works
             </a>
             <a
-              href="https://github.com/anamnesos/squidrun"
+              href="https://github.com/anamnesos/SquidRun"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-zinc-400 transition-colors hover:text-white"
@@ -76,12 +76,49 @@ export default function Home() {
               GitHub
             </a>
           </div>
-          <a
-            href="#download"
-            className="rounded-xl border border-accent/50 bg-accent px-4 py-2 text-sm font-medium text-white transition-all hover:bg-accent-light hover:shadow-[0_0_28px_rgba(109,90,252,0.35)]"
-          >
-            Download
-          </a>
+          <div className="flex items-center gap-2">
+            <details className="relative md:hidden">
+              <summary
+                aria-label="Toggle navigation menu"
+                className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-xl border border-border bg-surface text-zinc-300 transition-colors hover:border-zinc-600 hover:text-white [&::-webkit-details-marker]:hidden"
+              >
+                <span className="sr-only">Toggle navigation menu</span>
+                <span className="flex flex-col items-center gap-[3px]">
+                  <span className="h-[2px] w-4 rounded-full bg-current" />
+                  <span className="h-[2px] w-4 rounded-full bg-current" />
+                  <span className="h-[2px] w-4 rounded-full bg-current" />
+                </span>
+              </summary>
+              <div className="absolute right-0 top-[calc(100%+0.65rem)] w-56 rounded-xl border border-border bg-[#111827f2] p-2 shadow-[0_18px_60px_rgba(0,0,0,0.42)] backdrop-blur-xl">
+                <a href="#features" className="block rounded-lg px-3 py-2 text-sm text-zinc-200 transition-colors hover:bg-surface-light hover:text-white">
+                  Features
+                </a>
+                <a href="#how-it-works" className="mt-1 block rounded-lg px-3 py-2 text-sm text-zinc-200 transition-colors hover:bg-surface-light hover:text-white">
+                  How It Works
+                </a>
+                <a
+                  href="https://github.com/anamnesos/SquidRun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 block rounded-lg px-3 py-2 text-sm text-zinc-200 transition-colors hover:bg-surface-light hover:text-white"
+                >
+                  GitHub
+                </a>
+                <a
+                  href="#download"
+                  className="mt-2 inline-flex h-10 w-full items-center justify-center rounded-lg border border-accent/50 bg-accent px-4 py-2 text-sm font-medium text-white transition-all hover:bg-accent-light"
+                >
+                  Download
+                </a>
+              </div>
+            </details>
+            <a
+              href="#download"
+              className="hidden rounded-xl border border-accent/50 bg-accent px-4 py-2 text-sm font-medium text-white transition-all hover:bg-accent-light hover:shadow-[0_0_28px_rgba(109,90,252,0.35)] md:inline-flex"
+            >
+              Download
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -109,14 +146,14 @@ export default function Home() {
 
             <div className="animate-fade-in-up opacity-0 delay-300 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="https://github.com/anamnesos/squidrun"
+                href="https://github.com/anamnesos/SquidRun"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:translate-y-[-1px] hover:bg-accent-light hover:shadow-[0_0_28px_rgba(109,90,252,0.45)]"
               >
                 <DownloadIcon className="h-5 w-5" />
                 Get Started
               </a>
               <a
-                href="https://github.com/anamnesos/squidrun"
+                href="https://github.com/anamnesos/SquidRun"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 text-base font-medium text-zinc-200 transition-all hover:border-zinc-600 hover:bg-surface-light hover:text-white"
@@ -128,7 +165,7 @@ export default function Home() {
 
             <div className="animate-fade-in-up opacity-0 delay-400 mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4">
               <MetricPill label="Panes" value="3" />
-              <MetricPill label="Roles" value="Architect, Builder, Oracle" compact />
+              <MetricPill label="Roles" value="Architect, Builder, Oracle" />
               <MetricPill label="Runtime" value="Local-first" />
               <MetricPill label="Mode" value="Parallel" />
             </div>
@@ -140,8 +177,8 @@ export default function Home() {
                 <Image
                   src="/squidrun-logo.png"
                   alt="SquidRun logo"
-                  width={768}
-                  height={1366}
+                  width={960}
+                  height={1440}
                   priority
                   className="h-auto w-full object-contain drop-shadow-[0_0_40px_rgba(109,90,252,0.3)]"
                 />
@@ -199,6 +236,7 @@ export default function Home() {
             icon={<ShieldIcon />}
             title="Local by Default"
             description="Core orchestration is local-first with no required cloud relay. Optional Telegram and SMS channels are opt-in."
+            className="lg:col-span-3"
           />
         </div>
       </section>
@@ -243,14 +281,14 @@ export default function Home() {
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="https://github.com/anamnesos/squidrun"
+              href="https://github.com/anamnesos/SquidRun"
               className="inline-flex h-12 w-full max-w-xs items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:bg-accent-light hover:shadow-[0_0_30px_rgba(109,90,252,0.45)]"
             >
               <DownloadIcon className="h-5 w-5" />
               Clone & Run
             </a>
             <a
-              href="https://github.com/anamnesos/squidrun"
+              href="https://github.com/anamnesos/SquidRun"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-12 w-full max-w-xs items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 text-base font-medium text-zinc-200 transition-colors hover:border-zinc-600 hover:text-white"
@@ -259,7 +297,7 @@ export default function Home() {
               Star on GitHub
             </a>
           </div>
-          <p className="mt-6 text-sm text-zinc-500">
+          <p className="mt-6 text-sm text-zinc-400">
             Node.js 18+ and at least one CLI runtime required.
           </p>
         </div>
@@ -277,7 +315,7 @@ export default function Home() {
             />
             <span className="text-sm font-medium">SquidRun</span>
           </div>
-          <p className="text-sm text-zinc-500">
+          <p className="text-sm text-zinc-400">
             Built by{" "}
             <a href="https://github.com/anamnesos" target="_blank" rel="noopener noreferrer" className="text-zinc-300 transition-colors hover:text-white">
               anamnesos
@@ -295,7 +333,7 @@ function TerminalPreview() {
   const toneClass: Record<LaneTone, string> = {
     success: "text-emerald-300",
     warn: "text-amber-300",
-    muted: "text-zinc-500",
+    muted: "text-zinc-400",
   };
 
   const buildLineStyle = (line: TerminalLine): CSSProperties =>
@@ -324,7 +362,7 @@ function TerminalPreview() {
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 border-t border-cyan-950/80 px-3 py-1.5 text-[10px]">
-            <span className="max-w-full truncate text-zinc-500">
+            <span className="max-w-full truncate text-zinc-400">
               Project: <span className="text-cyan-300">/home/dev/my-project</span>
             </span>
             <span className="text-zinc-600 sm:ml-auto">Session: 0:40</span>
@@ -369,7 +407,7 @@ function TerminalPreview() {
                   <span className="rounded-sm border border-cyan-700/50 bg-cyan-900/30 px-1.5 py-0.5 text-cyan-200">Builder</span>
                   <span className="rounded-sm border border-cyan-700/50 bg-cyan-950/40 px-1.5 py-0.5 text-cyan-300">CODEX CLI</span>
                 </div>
-                <div className="flex items-center gap-1 text-zinc-500">
+                <div className="flex items-center gap-1 text-zinc-400">
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5">Code</span>
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">□</span>
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">○</span>
@@ -385,7 +423,7 @@ function TerminalPreview() {
                     </span>
                   </div>
                 ))}
-                <div className="flex items-center gap-1 text-zinc-500">
+                <div className="flex items-center gap-1 text-zinc-400">
                   <span className="select-none text-zinc-600">$</span>
                   <span>Builder running...</span>
                   <span className="h-2.5 w-[2px] bg-cyan-300/90 animate-caret" />
@@ -398,7 +436,7 @@ function TerminalPreview() {
                   <span className="rounded-sm border border-cyan-700/50 bg-cyan-900/30 px-1.5 py-0.5 text-cyan-200">Oracle</span>
                   <span className="rounded-sm border border-violet-700/50 bg-violet-950/40 px-1.5 py-0.5 text-violet-300">GEMINI CLI</span>
                 </div>
-                <div className="flex items-center gap-1 text-zinc-500">
+                <div className="flex items-center gap-1 text-zinc-400">
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5">Code</span>
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">□</span>
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-cyan-300">○</span>
@@ -414,7 +452,7 @@ function TerminalPreview() {
                     </span>
                   </div>
                 ))}
-                <div className="flex items-center gap-1 text-zinc-500">
+                <div className="flex items-center gap-1 text-zinc-400">
                   <span className="select-none text-zinc-600">$</span>
                   <span>Oracle analyzing...</span>
                   <span className="h-2.5 w-[2px] bg-cyan-300/90 animate-caret" />
@@ -426,7 +464,7 @@ function TerminalPreview() {
 
         <div className="border-t border-cyan-900/55 bg-[#050e1e] px-3 py-2">
           <div className="flex items-center gap-2">
-            <div className="flex h-9 flex-1 items-center rounded-md border border-cyan-900/60 bg-[#041022] px-3 text-[11px] text-zinc-500">
+            <div className="flex h-9 flex-1 items-center rounded-md border border-cyan-900/60 bg-[#041022] px-3 text-[11px] text-zinc-400">
               <span>Type here to message Architect (Enter to send)</span>
               <span className="ml-1.5 h-3 w-[2px] bg-cyan-300/90 animate-caret" />
             </div>
@@ -447,18 +485,28 @@ function TerminalPreview() {
   );
 }
 
-function MetricPill({ label, value, compact = false }: { label: string; value: string; compact?: boolean }) {
+function MetricPill({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-xl border border-border/90 bg-surface/70 px-3 py-3 text-left">
-      <p className="text-[10px] tracking-[0.12em] text-zinc-500 uppercase">{label}</p>
-      <p className={`mt-1 text-sm text-zinc-200 ${compact ? "truncate" : ""}`}>{value}</p>
+      <p className="text-[10px] tracking-[0.12em] text-zinc-400 uppercase">{label}</p>
+      <p className="mt-1 text-sm leading-snug text-zinc-200">{value}</p>
     </div>
   );
 }
 
-function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+function FeatureCard({
+  icon,
+  title,
+  description,
+  className = "",
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  className?: string;
+}) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-border/80 bg-surface/80 p-6 transition-all duration-300 hover:translate-y-[-2px] hover:border-accent/35 hover:bg-surface-light">
+    <div className={`group relative overflow-hidden rounded-2xl border border-border/80 bg-surface/80 p-6 transition-all duration-300 hover:translate-y-[-2px] hover:border-accent/35 hover:bg-surface-light ${className}`}>
       <div className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-accent/10 blur-xl transition-opacity group-hover:opacity-100" />
       <div className="relative mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-accent/25 bg-accent/10 text-accent">
         {icon}

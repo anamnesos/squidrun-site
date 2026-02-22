@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.png",
-        width: 768,
-        height: 1366,
+        width: 960,
+        height: 1440,
         alt: "SquidRun logo",
       },
     ],
