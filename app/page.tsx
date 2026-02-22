@@ -150,7 +150,7 @@ export default function Home() {
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:translate-y-[-1px] hover:bg-accent-light hover:shadow-[0_0_28px_rgba(109,90,252,0.45)]"
               >
                 <DownloadIcon className="h-5 w-5" />
-                Get Started
+                Download Latest Release
               </a>
               <a
                 href="https://github.com/anamnesos/SquidRun"
@@ -285,7 +285,7 @@ export default function Home() {
               className="inline-flex h-12 w-full max-w-xs items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:bg-accent-light hover:shadow-[0_0_30px_rgba(109,90,252,0.45)]"
             >
               <DownloadIcon className="h-5 w-5" />
-              Clone & Run
+              Download Latest Release
             </a>
             <a
               href="https://github.com/anamnesos/SquidRun"
