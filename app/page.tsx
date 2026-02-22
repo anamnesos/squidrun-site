@@ -38,7 +38,7 @@ const oracleTerminalLines: TerminalLine[] = [
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground antialiased">
+    <main className="relative min-h-screen overflow-x-clip bg-background text-foreground antialiased">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(109,90,252,0.2),transparent_45%),radial-gradient(circle_at_80%_0%,rgba(139,125,255,0.18),transparent_42%)]" />
         <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:40px_40px]" />
@@ -323,7 +323,7 @@ export default function Home() {
           </p>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
 
