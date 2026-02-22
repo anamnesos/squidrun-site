@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 
 type LaneTone = "success" | "warn" | "muted";
@@ -37,7 +38,7 @@ const oracleTerminalLines: TerminalLine[] = [
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden overflow-x-clip bg-background text-foreground antialiased">
+    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground antialiased">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(109,90,252,0.2),transparent_45%),radial-gradient(circle_at_80%_0%,rgba(139,125,255,0.18),transparent_42%)]" />
         <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:40px_40px]" />
@@ -45,7 +46,7 @@ export default function Home() {
 
       <nav className="fixed top-0 z-50 w-full border-b border-border/70 bg-background/75 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-          <a href="#" className="group flex items-center gap-3">
+          <Link href="/" className="group flex items-center gap-3">
             <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-accent/40 bg-accent/10 text-accent transition-all group-hover:scale-[1.03] group-hover:border-accent/70">
               <Image
                 src="/favicon-64.png"
@@ -58,7 +59,7 @@ export default function Home() {
             <span className="text-lg font-semibold tracking-tight sm:text-xl">
               SquidRun
             </span>
-          </a>
+          </Link>
           <div className="hidden items-center gap-7 md:flex">
             <a href="#features" className="text-sm text-zinc-400 transition-colors hover:text-white">
               Features
@@ -67,7 +68,7 @@ export default function Home() {
               How It Works
             </a>
             <a
-              href="https://github.com/anamnesos/hivemind"
+              href="https://github.com/anamnesos/squidrun"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-zinc-400 transition-colors hover:text-white"
@@ -84,7 +85,7 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="relative px-4 pb-20 pt-30 sm:px-6 sm:pt-36 lg:pb-28">
+      <section className="relative px-4 pb-20 pt-32 sm:px-6 sm:pt-36 lg:pb-28">
         <div className="mx-auto grid w-full max-w-6xl min-w-0 items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
           <div>
             <div className="animate-fade-in-up opacity-0">
@@ -102,20 +103,20 @@ export default function Home() {
             </h1>
 
             <p className="animate-fade-in-up opacity-0 delay-200 mt-7 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-              SquidRun runs Claude, Codex, and Gemini as one coordinated team - Architect, Builder, Oracle - each in their own pane, each bringing different reasoning.
+              SquidRun runs Claude Code, Codex CLI, and Gemini CLI as one coordinated team - Architect, Builder, Oracle - each in their own pane, each bringing different reasoning.
               Just your machine, your models, your code.
             </p>
 
             <div className="animate-fade-in-up opacity-0 delay-300 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="https://github.com/anamnesos/hivemind/releases/latest"
+                href="https://github.com/anamnesos/squidrun"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:translate-y-[-1px] hover:bg-accent-light hover:shadow-[0_0_28px_rgba(109,90,252,0.45)]"
               >
                 <DownloadIcon className="h-5 w-5" />
-                Launch Local Runtime
+                Get Started
               </a>
               <a
-                href="https://github.com/anamnesos/hivemind"
+                href="https://github.com/anamnesos/squidrun"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 text-base font-medium text-zinc-200 transition-all hover:border-zinc-600 hover:bg-surface-light hover:text-white"
@@ -153,7 +154,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="features" className="mx-auto w-full max-w-6xl px-4 py-24 sm:px-6 lg:py-28">
+      <section id="features" className="scroll-mt-24 mx-auto w-full max-w-6xl px-4 py-24 sm:px-6 lg:py-28">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Not another agent framework
@@ -167,7 +168,7 @@ export default function Home() {
           <FeatureCard
             icon={<PanesIcon />}
             title="Heterogeneous models in parallel"
-            description="Claude, Codex, and Gemini run side by side, each bringing different reasoning styles."
+            description="Claude Code, Codex CLI, and Gemini CLI run side by side, each bringing different reasoning styles."
           />
           <FeatureCard
             icon={<BrainIcon />}
@@ -202,7 +203,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="how-it-works" className="border-y border-border/80 bg-surface/55 px-4 py-24 sm:px-6 lg:py-28">
+      <section id="how-it-works" className="scroll-mt-24 border-y border-border/80 bg-surface/55 px-4 py-24 sm:px-6 lg:py-28">
         <div className="mx-auto w-full max-w-4xl">
           <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">
             From prompt to shipped change
@@ -211,7 +212,7 @@ export default function Home() {
             <Step
               number={1}
               title="Connect your AI CLIs"
-              description="Install Claude Code, Codex, or Gemini CLI. SquidRun detects available runtimes and maps them to panes."
+              description="Install Claude Code, Codex CLI, or Gemini CLI. SquidRun detects available runtimes and maps them to panes."
             />
             <Step
               number={2}
@@ -232,7 +233,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="download" className="px-4 py-24 sm:px-6 lg:py-28">
+      <section id="download" className="scroll-mt-24 px-4 py-24 sm:px-6 lg:py-28">
         <div className="mx-auto w-full max-w-4xl rounded-3xl border border-accent/25 bg-gradient-to-br from-surface to-background p-8 text-center shadow-[0_30px_120px_rgba(0,0,0,0.45)] sm:p-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Ready to run the squad?
@@ -242,17 +243,17 @@ export default function Home() {
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="https://github.com/anamnesos/hivemind/releases/latest"
-              className="inline-flex h-13 w-full max-w-xs items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:bg-accent-light hover:shadow-[0_0_30px_rgba(109,90,252,0.45)]"
+              href="https://github.com/anamnesos/squidrun"
+              className="inline-flex h-12 w-full max-w-xs items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:bg-accent-light hover:shadow-[0_0_30px_rgba(109,90,252,0.45)]"
             >
               <DownloadIcon className="h-5 w-5" />
-              Download Release
+              Clone & Run
             </a>
             <a
-              href="https://github.com/anamnesos/hivemind"
+              href="https://github.com/anamnesos/squidrun"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-13 w-full max-w-xs items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 text-base font-medium text-zinc-200 transition-colors hover:border-zinc-600 hover:text-white"
+              className="inline-flex h-12 w-full max-w-xs items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 text-base font-medium text-zinc-200 transition-colors hover:border-zinc-600 hover:text-white"
             >
               <GitHubIcon className="h-5 w-5" />
               Star on GitHub
@@ -338,7 +339,7 @@ function TerminalPreview() {
                 <span className="rounded-md border border-orange-700/60 bg-orange-900/30 px-2 py-0.5 font-semibold text-orange-200">CLAUDE CODE</span>
               </div>
               <div className="flex items-center gap-1">
-                <span className="rounded-md border border-zinc-700 px-2 py-0.5 text-zinc-400">Claude</span>
+                <span className="rounded-md border border-zinc-700 px-2 py-0.5 text-zinc-400">Claude Code</span>
                 <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-[10px] text-cyan-300">□</span>
                 <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-[10px] text-cyan-300">○</span>
                 <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5 text-[10px] text-cyan-300">↻</span>
@@ -366,7 +367,7 @@ function TerminalPreview() {
               <div className="flex items-center justify-between border-b border-cyan-950/70 px-2.5 py-2 text-[10px]">
                 <div className="flex items-center gap-1.5">
                   <span className="rounded-sm border border-cyan-700/50 bg-cyan-900/30 px-1.5 py-0.5 text-cyan-200">Builder</span>
-                  <span className="rounded-sm border border-cyan-700/50 bg-cyan-950/40 px-1.5 py-0.5 text-cyan-300">CODEX</span>
+                  <span className="rounded-sm border border-cyan-700/50 bg-cyan-950/40 px-1.5 py-0.5 text-cyan-300">CODEX CLI</span>
                 </div>
                 <div className="flex items-center gap-1 text-zinc-500">
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5">Code</span>
@@ -395,7 +396,7 @@ function TerminalPreview() {
               <div className="flex items-center justify-between border-b border-cyan-950/70 px-2.5 py-2 text-[10px]">
                 <div className="flex items-center gap-1.5">
                   <span className="rounded-sm border border-cyan-700/50 bg-cyan-900/30 px-1.5 py-0.5 text-cyan-200">Oracle</span>
-                  <span className="rounded-sm border border-violet-700/50 bg-violet-950/40 px-1.5 py-0.5 text-violet-300">GEMINI</span>
+                  <span className="rounded-sm border border-violet-700/50 bg-violet-950/40 px-1.5 py-0.5 text-violet-300">GEMINI CLI</span>
                 </div>
                 <div className="flex items-center gap-1 text-zinc-500">
                   <span className="rounded-sm border border-cyan-900/70 px-1 py-0.5">Code</span>
@@ -429,10 +430,10 @@ function TerminalPreview() {
               <span>Type here to message Architect (Enter to send)</span>
               <span className="ml-1.5 h-3 w-[2px] bg-cyan-300/90 animate-caret" />
             </div>
-            <button type="button" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-cyan-800/60 bg-cyan-950/35 text-cyan-200">
+            <button type="button" aria-label="Toggle capture mode" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-cyan-800/60 bg-cyan-950/35 text-cyan-200">
               ◉
             </button>
-            <button type="button" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-cyan-800/60 bg-cyan-900/30 text-cyan-200">
+            <button type="button" aria-label="Send message" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-cyan-800/60 bg-cyan-900/30 text-cyan-200">
               ▸
             </button>
           </div>

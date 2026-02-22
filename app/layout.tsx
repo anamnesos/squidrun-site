@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://squidrun.com"),
   title: "SquidRun — Multi-Agent AI Orchestrator",
   description:
-    "Run multiple AI coding agents in parallel. Claude, Codex, and Gemini working together in coordinated panes. One desktop app, unlimited arms.",
+    "Run multiple AI coding agents in parallel. Claude Code, Codex CLI, and Gemini CLI working together in coordinated panes. One desktop app for structured agent teamwork.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SquidRun — Multi-Agent AI Orchestrator",
     description:
-      "Run multiple AI coding agents in parallel. One desktop app, unlimited arms.",
+      "Run multiple AI coding agents in parallel. One desktop app for structured agent teamwork.",
     url: "https://squidrun.com",
     siteName: "SquidRun",
     type: "website",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SquidRun — Multi-Agent AI Orchestrator",
     description:
-      "Run multiple AI coding agents in parallel. One desktop app, unlimited arms.",
+      "Run multiple AI coding agents in parallel. One desktop app for structured agent teamwork.",
     images: ["/og-image.png"],
   },
 };
@@ -58,9 +58,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: `window.scrollTo(0,0)` }} />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
