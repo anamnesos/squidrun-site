@@ -146,7 +146,7 @@ export default function Home() {
 
             <div className="animate-fade-in-up opacity-0 delay-300 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="https://github.com/anamnesos/SquidRun"
+                href="https://github.com/anamnesos/SquidRun/releases/latest"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:translate-y-[-1px] hover:bg-accent-light hover:shadow-[0_0_28px_rgba(109,90,252,0.45)]"
               >
                 <DownloadIcon className="h-5 w-5" />
@@ -281,7 +281,7 @@ export default function Home() {
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="https://github.com/anamnesos/SquidRun"
+              href="https://github.com/anamnesos/SquidRun/releases/latest"
               className="inline-flex h-12 w-full max-w-xs items-center justify-center gap-2 rounded-xl bg-accent px-7 text-base font-semibold text-white transition-all hover:bg-accent-light hover:shadow-[0_0_30px_rgba(109,90,252,0.45)]"
             >
               <DownloadIcon className="h-5 w-5" />
