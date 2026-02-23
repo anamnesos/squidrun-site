@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-const RELEASE_VERSION = "0.1.2";
+const RELEASE_VERSION = "0.1.3";
 const RELEASES_LATEST_URL = "https://github.com/anamnesos/SquidRun/releases/latest";
 const RELEASE_BASE_URL = `https://github.com/anamnesos/SquidRun/releases/download/v${RELEASE_VERSION}`;
 
@@ -46,13 +46,13 @@ function mapPlatformToDownload(platform: PlatformTarget) {
   switch (platform) {
     case "mac-arm64":
       return {
-        href: `${RELEASE_BASE_URL}/SquidRun-${RELEASE_VERSION}-arm64.dmg`,
-        label: "Download for Mac (Apple Silicon)",
+        href: `${RELEASE_BASE_URL}/SquidRun-${RELEASE_VERSION}-universal.dmg`,
+        label: "Download for Mac",
       };
     case "mac-x64":
       return {
-        href: `${RELEASE_BASE_URL}/SquidRun-${RELEASE_VERSION}.dmg`,
-        label: "Download for Mac (Intel)",
+        href: `${RELEASE_BASE_URL}/SquidRun-${RELEASE_VERSION}-universal.dmg`,
+        label: "Download for Mac",
       };
     case "windows":
       return {
