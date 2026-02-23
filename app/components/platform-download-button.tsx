@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 
-const RELEASE_VERSION = "0.1.4";
+const RELEASE_VERSION = "0.1.5";
 const RELEASES_LATEST_URL = "https://github.com/anamnesos/SquidRun/releases/latest";
 const RELEASE_BASE_URL = `https://github.com/anamnesos/SquidRun/releases/download/v${RELEASE_VERSION}`;
 
