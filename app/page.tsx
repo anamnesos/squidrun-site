@@ -129,7 +129,7 @@ export default function Home() {
             <div className="animate-fade-in-up opacity-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-medium tracking-[0.14em] text-zinc-300 uppercase">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
-                Built for the solo developer.
+                Built for CLI tinkerers and shipping teams.
               </div>
             </div>
 
@@ -141,8 +141,8 @@ export default function Home() {
             </h1>
 
             <p className="animate-fade-in-up opacity-0 delay-200 mt-7 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-              SquidRun runs Claude Code, Codex CLI, and Gemini CLI as one coordinated team - Architect, Builder, Oracle - each in their own pane, each bringing different reasoning.
-              Just your machine, your models, your code.
+              SquidRun keeps memory persistent across sessions, enforces role-bounded safety rails, and auto-parallelizes execution when work gets heavy.
+              Mix frontier CLIs like Claude Code, Codex CLI, and Gemini CLI in one local command center without rewriting your workflow.
             </p>
 
             <div className="animate-fade-in-up opacity-0 delay-300 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -168,10 +168,10 @@ export default function Home() {
             </p>
 
             <div className="animate-fade-in-up opacity-0 delay-400 mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <MetricPill label="Panes" value="3" />
-              <MetricPill label="Roles" value="Architect, Builder, Oracle" />
-              <MetricPill label="Runtime" value="Local-first" />
-              <MetricPill label="Mode" value="Parallel" />
+              <MetricPill label="Memory" value="Persistent across sessions" />
+              <MetricPill label="Cost" value="$0 app. Uses your existing subs." />
+              <MetricPill label="Safety" value="Role-bounded execution" />
+              <MetricPill label="Models" value="Mix any frontier CLI" />
             </div>
           </div>
 
@@ -201,47 +201,103 @@ export default function Home() {
             Not another agent framework
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-            Most frameworks are Python-first and API-key-first. SquidRun is local desktop orchestration of real CLIs with role discipline and no required per-token API billing.
+            The Autonomous Trap is real: Heartbeat Burn, Blind Execution, Context Drift, and Privilege Creep.
+            SquidRun counters it with role-bounded orchestration, persistent memory, and protocol-first comms you can audit.
           </p>
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
           <FeatureCard
             icon={<PanesIcon />}
-            title="Heterogeneous models in parallel"
-            description="Claude Code, Codex CLI, and Gemini CLI run side by side, each bringing different reasoning styles."
+            title="Multi-model modularity + failover"
+            description="Run frontier CLIs side by side and switch providers without tearing up your orchestration stack."
           />
           <FeatureCard
             icon={<BrainIcon />}
-            title="Real local CLI/PTY processes"
-            description="Execution happens through real local CLIs and terminal sessions, not API wrappers."
+            title="Subscription-native execution"
+            description="Runs through real local CLI/PTY sessions on subscriptions you already pay for. No required API key billing layer."
           />
           <FeatureCard
             icon={<SwapIcon />}
-            title="Local-first desktop app"
-            description="Your code stays on your machine while SquidRun coordinates work across dedicated panes."
+            title="Privacy-first local orchestration"
+            description="Code and context stay on your machine while SquidRun coordinates roles with visible control surfaces."
           />
           <FeatureCard
             icon={<MessageIcon />}
-            title="Structured Comms"
-            description="Agents route updates through a protocol-first channel for reproducible delegation and traceability."
+            title="Auditable structured comms"
+            description="Delegation, delivery acks, and handoffs are protocol-routed so you can trace decisions end to end."
           />
           <FeatureCard
             icon={<MemoryIcon />}
-            title="Automatic Memory"
-            description="Session artifacts and handoffs are materialized automatically so agents resume with operational continuity."
+            title="Persistent operational memory"
+            description="Agents do not reset every run. Session artifacts and handoffs persist so work resumes with context intact."
           />
           <FeatureCard
             icon={<ScaleIcon />}
-            title="Autonomous Builder Scaling"
-            description="When work gets heavy, Builder can spawn up to three background worker agents to parallelize implementation, tests, and fixes before reporting back to Architect."
+            title="Automatic parallel delivery"
+            description="Heavy work auto-fans out through Builder background agents, then consolidates upstream with clean ownership."
           />
           <FeatureCard
             icon={<ShieldIcon />}
-            title="Local by Default"
-            description="Core orchestration is local-first with no required cloud relay. Optional Telegram and SMS channels are opt-in."
+            title="Structural integrity by design"
+            description="Role boundaries are least-privilege safety rails that preserve speed without surrendering control."
             className="lg:col-span-3"
           />
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-4 pb-6 sm:px-6 lg:pb-12">
+        <div className="rounded-3xl border border-border/80 bg-surface/55 p-6 sm:p-8 lg:p-10">
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
+            SquidRun costs nothing. It multiplies tools you already pay for.
+          </h2>
+          <p className="mt-4 max-w-4xl text-base leading-relaxed text-zinc-300 sm:text-lg">
+            As of Feb 2026, a full subscription stack (Claude Max + ChatGPT Pro + Google AI Ultra) is roughly $550/month.
+            Comparable heavy API-first frontier usage can land in the thousands per week. SquidRun runs locally on your existing subscriptions instead of forcing per-token burn.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-border/75 bg-background/65 p-5">
+              <p className="text-xs tracking-[0.12em] text-zinc-400 uppercase">Autonomous Trap</p>
+              <h3 className="mt-2 text-xl font-semibold tracking-tight">Heartbeat Burn</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                Cost keeps climbing while you sleep.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300">
+                SquidRun control: subscription-native execution plus explicit role lanes and visible process state.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/75 bg-background/65 p-5">
+              <p className="text-xs tracking-[0.12em] text-zinc-400 uppercase">Autonomous Trap</p>
+              <h3 className="mt-2 text-xl font-semibold tracking-tight">Blind Execution</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                Unconstrained agents run risky actions without clear oversight.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300">
+                SquidRun control: role-bounded authority, Architect gating, and auditable comms for every handoff.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/75 bg-background/65 p-5">
+              <p className="text-xs tracking-[0.12em] text-zinc-400 uppercase">Autonomous Trap</p>
+              <h3 className="mt-2 text-xl font-semibold tracking-tight">Context Drift</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                Agents lose key decisions and repeat expensive loops.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300">
+                SquidRun control: persistent memory, materialized handoffs, and deterministic session continuity.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/75 bg-background/65 p-5">
+              <p className="text-xs tracking-[0.12em] text-zinc-400 uppercase">Autonomous Trap</p>
+              <h3 className="mt-2 text-xl font-semibold tracking-tight">Privilege Creep</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                Agent scope silently widens until blast radius is unclear.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300">
+                SquidRun control: structural role boundaries that enforce least privilege by protocol.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -253,23 +309,23 @@ export default function Home() {
           <div className="mt-12 space-y-10 sm:mt-16">
             <Step
               number={1}
-              title="Connect your AI CLIs"
-              description="Install Claude Code, Codex CLI, or Gemini CLI. SquidRun detects available runtimes and maps them to panes."
+              title="Bring your existing frontier subscriptions"
+              description="Connect Claude Code, Codex CLI, or Gemini CLI and keep working inside the tools you already trust."
             />
             <Step
               number={2}
-              title="Launch and assign roles"
-              description="Architect owns planning, Builder handles implementation, Oracle runs investigations and evidence checks."
+              title="Start with structural roles"
+              description="Architect coordinates, Builder ships, and Oracle validates so quality scales without coordination chaos."
             />
             <Step
               number={3}
-              title="Drive through Architect"
-              description="Architect delegates across Builder and Oracle. Builder can autonomously fan out into background workers for multi-file tasks, then consolidate results upstream."
+              title="Scale automatically when work expands"
+              description="Heavy tasks auto-fan out through Builder workers while protocol comms keep every decision auditable."
             />
             <Step
               number={4}
-              title="Review and ship"
-              description="Parallel execution increases throughput while preserving clean boundaries for verification and release."
+              title="Ship with memory intact"
+              description="Persistent session memory and handoffs let every run start informed instead of starting from scratch."
             />
           </div>
         </div>
