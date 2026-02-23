@@ -1,18 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 
 const RELEASE_VERSION = "0.1.3";
 const RELEASES_LATEST_URL = "https://github.com/anamnesos/SquidRun/releases/latest";
 const RELEASE_BASE_URL = `https://github.com/anamnesos/SquidRun/releases/download/v${RELEASE_VERSION}`;
 
-type PlatformTarget = "mac-arm64" | "mac-x64" | "windows" | "linux" | "unknown";
-
-type UserAgentDataLike = {
-  platform?: string;
-  architecture?: string;
-  getHighEntropyValues?: (hints: string[]) => Promise<Record<string, string>>;
-};
+type PlatformTarget = "mac" | "windows" | "linux" | "unknown";
 
 function detectPlatformFromNavigator(nav: Navigator): PlatformTarget {
   const userAgent = nav.userAgent.toLowerCase();
@@ -27,16 +21,7 @@ function detectPlatformFromNavigator(nav: Navigator): PlatformTarget {
   }
 
   if (platform.includes("mac") || userAgent.includes("mac os")) {
-    if (
-      platform.includes("arm") ||
-      userAgent.includes("arm64") ||
-      userAgent.includes("aarch64") ||
-      userAgent.includes("apple silicon")
-    ) {
-      return "mac-arm64";
-    }
-
-    return "mac-x64";
+    return "mac";
   }
 
   return "unknown";
@@ -44,12 +29,7 @@ function detectPlatformFromNavigator(nav: Navigator): PlatformTarget {
 
 function mapPlatformToDownload(platform: PlatformTarget) {
   switch (platform) {
-    case "mac-arm64":
-      return {
-        href: `${RELEASE_BASE_URL}/SquidRun-${RELEASE_VERSION}-universal.dmg`,
-        label: "Download for Mac",
-      };
-    case "mac-x64":
+    case "mac":
       return {
         href: `${RELEASE_BASE_URL}/SquidRun-${RELEASE_VERSION}-universal.dmg`,
         label: "Download for Mac",
@@ -73,54 +53,12 @@ function mapPlatformToDownload(platform: PlatformTarget) {
 }
 
 export function PlatformDownloadButton({ className }: { className: string }) {
-  const [platform, setPlatform] = useState<PlatformTarget>(() => {
+  const platform = useMemo<PlatformTarget>(() => {
     if (typeof window === "undefined") {
       return "unknown";
     }
 
     return detectPlatformFromNavigator(window.navigator);
-  });
-
-  useEffect(() => {
-    let isMounted = true;
-    const userAgentData = (navigator as Navigator & { userAgentData?: UserAgentDataLike }).userAgentData;
-    if (!userAgentData?.getHighEntropyValues) {
-      return () => {
-        isMounted = false;
-      };
-    }
-
-    userAgentData
-      .getHighEntropyValues(["architecture", "platform"])
-      .then((values) => {
-        if (!isMounted) {
-          return;
-        }
-
-        const platformValue = (values.platform ?? userAgentData.platform ?? "").toLowerCase();
-        const architectureValue = (values.architecture ?? userAgentData.architecture ?? "").toLowerCase();
-
-        if (platformValue.includes("win")) {
-          setPlatform("windows");
-          return;
-        }
-
-        if (platformValue.includes("linux")) {
-          setPlatform("linux");
-          return;
-        }
-
-        if (platformValue.includes("mac")) {
-          setPlatform(architectureValue.includes("arm") ? "mac-arm64" : "mac-x64");
-        }
-      })
-      .catch(() => {
-        // Ignore and keep platform detected from userAgent/platform fallback.
-      });
-
-    return () => {
-      isMounted = false;
-    };
   }, []);
 
   const { href, label } = useMemo(() => mapPlatformToDownload(platform), [platform]);
