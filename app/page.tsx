@@ -129,7 +129,7 @@ export default function Home() {
             <div className="animate-fade-in-up opacity-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-medium tracking-[0.14em] text-zinc-300 uppercase">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
-                Built for CLI tinkerers and shipping teams.
+                Built for operators, business owners, and AI builders.
               </div>
             </div>
 
@@ -141,6 +141,7 @@ export default function Home() {
             </h1>
 
             <p className="animate-fade-in-up opacity-0 delay-200 mt-7 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg">
+              You do not need to be a programmer to build with AI. You need a trustworthy system.
               SquidRun keeps memory persistent across sessions, enforces role-bounded safety rails, and auto-parallelizes execution when work gets heavy.
               Mix frontier CLIs like Claude Code, Codex CLI, and Gemini CLI in one local command center without rewriting your workflow.
             </p>
@@ -168,9 +169,9 @@ export default function Home() {
             </p>
 
             <div className="animate-fade-in-up opacity-0 delay-400 mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <MetricPill label="Trust" value="Role-bounded safety rails" />
               <MetricPill label="Memory" value="Persistent across sessions" />
               <MetricPill label="Cost" value="$0 app. Uses your existing subs." />
-              <MetricPill label="Safety" value="Role-bounded execution" />
               <MetricPill label="Models" value="Mix any frontier CLI" />
             </div>
           </div>
@@ -201,7 +202,8 @@ export default function Home() {
             Not another agent framework
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-            The Autonomous Trap is real: Heartbeat Burn, Blind Execution, Context Drift, and Privilege Creep.
+            Build with a team that does not self-destruct when work gets messy.
+            SquidRun is built to catch the Autonomous Trap patterns: Heartbeat Burn, Blind Execution, Context Drift, and Privilege Creep.
             SquidRun counters it with role-bounded orchestration, persistent memory, and protocol-first comms you can audit.
           </p>
         </div>
@@ -240,7 +242,7 @@ export default function Home() {
           <FeatureCard
             icon={<ShieldIcon />}
             title="Structural integrity by design"
-            description="Role boundaries are least-privilege safety rails that preserve speed without surrendering control."
+            description="Role boundaries catch common agent mistakes early, before they become lost work, bad commands, or expensive reruns."
             className="lg:col-span-3"
           />
         </div>
