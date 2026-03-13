@@ -434,7 +434,7 @@ function TerminalPreview() {
             <span className="max-w-full truncate text-zinc-400">
               Project: <span className="text-cyan-300">/home/dev/my-project</span>
             </span>
-            <span className="text-zinc-600 sm:ml-auto">Session: 0:40</span>
+            <span className="text-zinc-400 sm:ml-auto">Session: 0:40</span>
           </div>
         </div>
 
@@ -455,14 +455,14 @@ function TerminalPreview() {
             <div className="flex-1 space-y-1 overflow-hidden px-3 py-3 font-mono text-[11px] leading-[1.56] text-zinc-300">
               {architectTerminalLines.map((line, index) => (
                 <div key={`architect-${index}`} className={`terminal-line flex min-h-[1.1rem] gap-1.5 overflow-hidden ${line.tone ? toneClass[line.tone] : "text-zinc-300"}`}>
-                  <span className="select-none text-zinc-600">$</span>
+                  <span className="select-none text-zinc-400">$</span>
                   <span className="terminal-line-text" style={buildLineStyle(line)}>
                     {line.text}
                   </span>
                 </div>
               ))}
               <div className="flex items-center gap-1.5 text-zinc-400">
-                <span className="select-none text-zinc-600">$</span>
+                <span className="select-none text-zinc-400">$</span>
                 <span>Awaiting next Architect directive</span>
                 <span className="h-3 w-[2px] bg-cyan-300/90 animate-caret" />
               </div>
@@ -486,14 +486,14 @@ function TerminalPreview() {
               <div className="flex-1 space-y-1 overflow-hidden px-3 py-2 font-mono text-[10px] leading-[1.55] text-zinc-400">
                 {builderTerminalLines.map((line, index) => (
                   <div key={`builder-${index}`} className={`terminal-line flex min-h-[0.95rem] gap-1 overflow-hidden ${line.tone ? toneClass[line.tone] : "text-zinc-400"}`}>
-                    <span className="select-none text-zinc-600">$</span>
+                    <span className="select-none text-zinc-400">$</span>
                     <span className="terminal-line-text" style={buildLineStyle(line)}>
                       {line.text}
                     </span>
                   </div>
                 ))}
                 <div className="flex items-center gap-1 text-zinc-400">
-                  <span className="select-none text-zinc-600">$</span>
+                  <span className="select-none text-zinc-400">$</span>
                   <span>Builder running...</span>
                   <span className="h-2.5 w-[2px] bg-cyan-300/90 animate-caret" />
                 </div>
@@ -515,14 +515,14 @@ function TerminalPreview() {
               <div className="flex-1 space-y-1 overflow-hidden px-3 py-2 font-mono text-[10px] leading-[1.55] text-zinc-400">
                 {oracleTerminalLines.map((line, index) => (
                   <div key={`oracle-${index}`} className={`terminal-line flex min-h-[0.95rem] gap-1 overflow-hidden ${line.tone ? toneClass[line.tone] : "text-zinc-400"}`}>
-                    <span className="select-none text-zinc-600">$</span>
+                    <span className="select-none text-zinc-400">$</span>
                     <span className="terminal-line-text" style={buildLineStyle(line)}>
                       {line.text}
                     </span>
                   </div>
                 ))}
                 <div className="flex items-center gap-1 text-zinc-400">
-                  <span className="select-none text-zinc-600">$</span>
+                  <span className="select-none text-zinc-400">$</span>
                   <span>Oracle analyzing...</span>
                   <span className="h-2.5 w-[2px] bg-cyan-300/90 animate-caret" />
                 </div>
@@ -544,7 +544,7 @@ function TerminalPreview() {
               ▸
             </button>
           </div>
-          <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] text-zinc-600">
+          <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] text-zinc-400">
             <span className="max-w-full truncate">screenshot-1771565860398.png  SYNC  CTC  BLK  ERR</span>
             <span className="sm:ml-auto">Press Ctrl+1-4 to focus pane | Enter to send to Architect | Use /task to auto-route</span>
           </div>

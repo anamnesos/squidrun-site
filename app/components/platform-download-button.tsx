@@ -1,12 +1,13 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 
 const RELEASE_VERSION = "0.1.27";
 const RELEASES_LATEST_URL = "https://github.com/anamnesos/SquidRun/releases/latest";
 const RELEASE_BASE_URL = `https://github.com/anamnesos/SquidRun/releases/download/v${RELEASE_VERSION}`;
 
 type PlatformTarget = "mac" | "windows" | "linux" | "unknown";
+const emptySubscribe = () => () => {};
 
 function detectPlatformFromNavigator(nav: Navigator): PlatformTarget {
   const userAgent = nav.userAgent.toLowerCase();
@@ -53,13 +54,11 @@ function mapPlatformToDownload(platform: PlatformTarget) {
 }
 
 export function PlatformDownloadButton({ className }: { className: string }) {
-  const platform = useMemo<PlatformTarget>(() => {
-    if (typeof window === "undefined") {
-      return "unknown";
-    }
-
-    return detectPlatformFromNavigator(window.navigator);
-  }, []);
+  const platform = useSyncExternalStore<PlatformTarget>(
+    emptySubscribe,
+    () => detectPlatformFromNavigator(window.navigator),
+    () => "unknown"
+  );
 
   const { href, label } = useMemo(() => mapPlatformToDownload(platform), [platform]);
 
