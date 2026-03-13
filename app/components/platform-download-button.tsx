@@ -2,7 +2,7 @@
 
 import { useMemo, useSyncExternalStore } from "react";
 
-const RELEASE_VERSION = "0.1.27";
+const RELEASE_VERSION = "0.1.31";
 const RELEASES_LATEST_URL = "https://github.com/anamnesos/SquidRun/releases/latest";
 const RELEASE_BASE_URL = `https://github.com/anamnesos/SquidRun/releases/download/v${RELEASE_VERSION}`;
 
